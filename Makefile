@@ -1,5 +1,5 @@
 APP=$(shell basename -s .git $(shell git remote get-url origin) | tr 'A-Z' 'a-z')
-REGISTRY=mpdockerregistry/education-410810
+REGISTRY=mpanchenko
 VERSION=$(shell git describe --tags --abbrev=0 --always)-$(shell git rev-parse --short HEAD)
 TARGETOS?=linux #linux darwin windows
 TARGETARCH?=amd64 #amd64 arm64
