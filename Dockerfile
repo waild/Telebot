@@ -1,7 +1,11 @@
+
+
 FROM golang:1.22.1 as builder
+ARG TARGETARCH
+ARG TARGETOS
 WORKDIR /go/src/app
 COPY . .
-RUN make build
+RUN make build TARGETARCH=${TARGETARCH} TARGETOS=${TARGETOS} 
 
 FROM scratch
 WORKDIR /
