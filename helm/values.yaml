@@ -10,7 +10,7 @@ image:
   arch: amd64
 
 telebot:
-  token: ""
+  TELE_TOKEN: ""
 
 imagePullSecrets: []
 nameOverride: ""
