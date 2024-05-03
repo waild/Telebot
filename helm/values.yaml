@@ -9,8 +9,10 @@ image:
   tag: v1.0.0-c1383c3
   arch: amd64
 
-telebot:
-  TELE_TOKEN: ""
+secret:
+  name: tbot
+  tokenKey: token
+  tokenName: TELE_TOKEN
 
 imagePullSecrets: []
 nameOverride: ""
