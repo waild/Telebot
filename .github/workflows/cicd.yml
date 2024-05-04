@@ -42,7 +42,9 @@ jobs:
         with: 
           cmd: yq -i '.image.tag=strenv(VERSION)' helm/values.yaml
 
-      - run: |
-          git commit -am "update version $VERSION"
-          git push
-      
+      - name: Commit & Push changes
+        uses: actions-js/push@master
+        with:
+          author_email: actionsBot
+          github_token: ${{ secrets.GH_TOKEN }}
+          message: "update version $VERSION"
