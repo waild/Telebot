@@ -39,7 +39,7 @@ windowsarm:
 	TARGETOS=windows TARGETARCH=arm64 make image
 
 push:
-	docker push ${REGISTRY}/${APP}:${VERSION}-${TARGETOS}-${TARGETARCH}
+	docker push "${REGISTRY}/${APP}:${VERSION}-${TARGETOS}-${TARGETARCH}"
 
 clean:
 	rm -rf Telebot
