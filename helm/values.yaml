@@ -6,7 +6,7 @@ replicaCount: 1
 image:
   registry: "ghcr.io"
   repository: mpanchenko
-  tag: v1.0.2-4b3c9ea
+  tag: v1.0.2-fabaf04
   os: linux
   arch: amd64
 secret:

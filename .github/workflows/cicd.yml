@@ -46,6 +46,6 @@ jobs:
         uses: actions-js/push@master
         with:
           author_email: actionsBot
-          branch: master
+          branch: develop
           github_token: ${{ secrets.GITHUB_TOKEN }}
           message: "update version $VERSION in helm"
