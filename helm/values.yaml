@@ -5,7 +5,7 @@
 replicaCount: 1
 image:
   repository: mpanchenko
-  tag: v1.0.2-
+  tag: v1.0.2-4b3c9ea
   arch: amd64
 secret:
   name: tbot
