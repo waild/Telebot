@@ -1,17 +1,41 @@
 pipeline {
     agent any
+    environment {
+        GHCR_CREDENTIALS=credentials('github-app-creds')
+    }
     parameters {
-
-        choice(name: 'OS', choices: ['linux', 'darwin', 'windows', 'all'], description: 'Pick OS')
-
+        choice(name: 'OS', choices: ['linux', 'darwin', 'windows'], description: 'Pick OS')
+        choice(name: 'ARCH', choices: ['amd64', 'arm64'], description: 'Pick ARCH')
     }
     stages {
-        stage('Example') {
+        stage('clone') {
             steps {
-                echo "Build for platform ${params.OS}"
+                echo 'CLONE REPOSITORY'
+                git branch: "${BRANCH}", url: "${REPO}" 
+            }
+        }
 
-                echo "Build for arch: ${params.ARCH}"
+        stage('test') {
+            steps {
+                echo "TEST EXECUTION"
+                sh 'make test'
+            }
+        }
 
+        stage('image') {
+            steps {
+                echo "BUILD IMAGE"
+                sh 'make linux'
+            }
+        }
+
+        stage('push') {
+            steps {
+                echo "PUSH IMAGE"
+                docker.withRegistry('https://ghcr.io', GHCR_CREDENTIALS) {
+                    sh 'make push'
+                }
+                
             }
         }
     }
