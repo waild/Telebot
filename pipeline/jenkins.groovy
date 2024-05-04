@@ -25,7 +25,7 @@ pipeline {
         stage('image') {
             steps {
                 echo "BUILD IMAGE"
-                sh 'make linux'
+                sh "TARGETOS="${OS} TARGETARCH="${ARCH} make image"
             }
         }
 
