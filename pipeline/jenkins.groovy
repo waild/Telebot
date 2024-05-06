@@ -31,8 +31,7 @@ pipeline {
 
         stage('push') {
             steps {
-                echo "PUSH IMAGE"
-                script{
+                script {
                     docker.withRegistry('https://ghcr.io', 'ghcr-credentials') {
                         sh 'make push'
                     }
