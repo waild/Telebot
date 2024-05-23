@@ -15,3 +15,12 @@ t.me/mpanch_bot
 
 # usage commands:
  /hello
+
+
+ # dev notes:
+ 1. Installing gitleaks
+`
+git clone https://github.com/gitleaks/gitleaks.git
+cd gitleaks
+make build
+`
